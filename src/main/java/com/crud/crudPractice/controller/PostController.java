@@ -1,8 +1,8 @@
 package com.crud.crudPractice.controller;
 
 import com.crud.crudPractice.domain.post.Post;
+import com.crud.crudPractice.domain.post.PostForm;
 import com.crud.crudPractice.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +13,8 @@ import java.util.List;
 @Controller
 public class PostController {
 
-    public PostService postService;
+    private PostService postService;
 
-    @Autowired
     public PostController(PostService postService) {
         this.postService = postService;
     }

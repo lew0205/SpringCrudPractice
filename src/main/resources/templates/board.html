@@ -3,23 +3,23 @@
 <title>게시판</title>
 <body>
 <div class="container">
-  <div>
-    <table>
-      <thead>
-      <tr>
-        <th>게시판</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="post : ${posts}">
-        <td th:text="${post.id}"></td>
-        <td th:text="${post.title}"></td>
-        <td th:text="${post.content}"></td>
-        <td th:text="${post.author}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>게시판</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td th:text="id ${post.id}"></td>
+                <td th:text="title ${post.title}"></td>
+                <td th:text="content ${post.content}"></td>
+                <td th:text="author ${post.author}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div> <!-- /container -->
 </body>
 </html>

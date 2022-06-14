@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Transactional
-//@Service
+@Service
 public class PostService {
     private final PostRepository postRepository;
 
@@ -27,10 +27,10 @@ public class PostService {
     }
 
     public Post findOne(Long postIdx) {
-        return postRepository.findById(postIdx).orElseThrow(()-> new RuntimeException());
+        return postRepository.findById(postIdx).orElseThrow(() -> new RuntimeException());
     }
 
-    public List<Post> findByTitle(String postingTitle){
+    public List<Post> findByTitle(String postingTitle) {
         return postRepository.findAllByTitle(postingTitle);
     }
 }

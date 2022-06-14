@@ -1,4 +1,4 @@
-package com.crud.crudPractice.controller;
+package com.crud.crudPractice.domain.post;
 
 public class PostForm {
     String Title;
