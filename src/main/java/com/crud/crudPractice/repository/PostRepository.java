@@ -1,16 +1,13 @@
 package com.crud.crudPractice.repository;
 
 import com.crud.crudPractice.domain.post.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface PostRepository {
-    Post save(Post post);
-
-    Optional<Post> FindById(Long id);
-
-    Optional<Post> FindByTitle(String title);
-
-    List<Post> FindAll();
+@Repository
+public interface PostRepository extends JpaRepository<Post, Long> {
+    List<Post> findAllByTitle(String title);
 }
