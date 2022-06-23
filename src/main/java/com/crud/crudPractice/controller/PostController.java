@@ -2,7 +2,7 @@ package com.crud.crudPractice.controller;
 
 import com.crud.crudPractice.domain.post.Post;
 import com.crud.crudPractice.domain.post.PostForm;
-import com.crud.crudPractice.service.PostService;
+import com.crud.crudPractice.service.PostServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +13,9 @@ import java.util.List;
 @Controller
 public class PostController {
 
-    private PostService postService;
+    private PostServiceImpl postService;
 
-    public PostController(PostService postService) {
+    public PostController(PostServiceImpl postService) {
         this.postService = postService;
     }
 
