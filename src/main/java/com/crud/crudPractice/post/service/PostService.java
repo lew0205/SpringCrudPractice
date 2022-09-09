@@ -1,7 +1,6 @@
-package com.crud.crudPractice.service;
+package com.crud.crudPractice.post.service;
 
-import com.crud.crudPractice.domain.post.Post;
-import com.crud.crudPractice.repository.PostRepository;
+import com.crud.crudPractice.post.domain.Post;
 
 import java.util.List;
 

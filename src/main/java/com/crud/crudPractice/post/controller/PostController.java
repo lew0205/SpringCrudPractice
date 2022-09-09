@@ -1,8 +1,8 @@
-package com.crud.crudPractice.controller;
+package com.crud.crudPractice.post.controller;
 
-import com.crud.crudPractice.domain.post.Post;
-import com.crud.crudPractice.domain.post.PostForm;
-import com.crud.crudPractice.service.PostServiceImpl;
+import com.crud.crudPractice.post.domain.Post;
+import com.crud.crudPractice.post.domain.PostForm;
+import com.crud.crudPractice.post.service.PostServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.crud.crudPractice.domain.post;
+package com.crud.crudPractice.post.domain;
 
 import lombok.Getter;
 import lombok.Setter;
