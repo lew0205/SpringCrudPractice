@@ -4,6 +4,7 @@ import com.crud.crudPractice.post.domain.Post;
 import com.crud.crudPractice.post.domain.PostForm;
 import com.crud.crudPractice.post.service.PostServiceImpl;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@Slf4j
 public class PostController {
 
     private final PostServiceImpl postService;
@@ -28,6 +30,10 @@ public class PostController {
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());
         post.setAuthor(form.getAuthor());
+
+        log.info(post.getTitle());
+        log.info(post.getContent());
+        log.info(post.getAuthor());
 
         postService.submit(post);
 
