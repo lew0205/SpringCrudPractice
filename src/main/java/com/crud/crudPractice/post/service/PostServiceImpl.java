@@ -2,6 +2,7 @@ package com.crud.crudPractice.post.service;
 
 import com.crud.crudPractice.post.domain.Post;
 import com.crud.crudPractice.post.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -9,12 +10,9 @@ import java.util.List;
 
 @Transactional
 @Service
+@RequiredArgsConstructor
 public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
-
-    public PostServiceImpl(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
 
     public Long submit(Post post) {
         postRepository.save(post);
