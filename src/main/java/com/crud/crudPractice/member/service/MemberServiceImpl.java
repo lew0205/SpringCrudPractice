@@ -1,6 +1,7 @@
 package com.crud.crudPractice.member.service;
 
 import com.crud.crudPractice.member.domain.Member;
+import com.crud.crudPractice.member.domain.MemberForm;
 import com.crud.crudPractice.member.repository.MemberRepository;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +20,15 @@ public class MemberServiceImpl implements MemberService {
 
 
     @Override
-    public Long join(Member member) {
+    public Member join(MemberForm memberForm) {
+        Member member = new Member();
+
+        member.setName(memberForm.getName());
+        member.setPhoneNum(memberForm.getPhoneNum());
+        member.setAge(memberForm.getAge());
+
         memberRepository.save(member);
-        return member.getId();
+        return member;
     }
 
     @Override
