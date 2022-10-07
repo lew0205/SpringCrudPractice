@@ -8,5 +8,5 @@ import lombok.Setter;
 public class MemberForm {
     String name;
     String phoneNum;
-    int age;
+    Long age;
 }

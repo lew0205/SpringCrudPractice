@@ -21,5 +21,5 @@ public class Member {
     private Long id;
     private String name;
     private String phoneNum;
-    private int age;
+    private Long age;
 }
