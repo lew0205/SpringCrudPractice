@@ -34,13 +34,13 @@ public class MemberController {
         return member;
     }
 
-    @PostMapping("/{memberId}")
+    @GetMapping("/{memberId}")
     public Member findMemberId(@PathVariable Long memberId) {
         Member result = memberService.findMemberById(memberId);
         return result;
     }
 
-    @PostMapping("/{memberName}")
+    @GetMapping("/{memberName}")
     public Member findMemberName(@PathVariable String memberName) {
         Member result = memberService.findMemberByName(memberName);
         return result;
