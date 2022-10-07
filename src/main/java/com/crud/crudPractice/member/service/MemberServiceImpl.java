@@ -20,13 +20,7 @@ public class MemberServiceImpl implements MemberService {
 
 
     @Override
-    public Member join(MemberForm memberForm) {
-        Member member = new Member();
-
-        member.setName(memberForm.getName());
-        member.setPhoneNum(memberForm.getPhoneNum());
-        member.setAge(memberForm.getAge());
-
+    public Member join(Member member) {
         memberRepository.save(member);
         return member;
     }

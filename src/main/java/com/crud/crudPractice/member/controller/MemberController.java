@@ -18,7 +18,6 @@ import java.util.List;
 @Slf4j
 public class MemberController {
 
-    private final MemberRepository memberRepository;
     private final MemberService memberService;
 
     @PostMapping("/join")

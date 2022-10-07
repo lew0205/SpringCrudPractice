@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MemberService {
 
-    Member join(MemberForm memberForm);
+    Member join(Member member);
 
     List<Member> findMembers();
 
