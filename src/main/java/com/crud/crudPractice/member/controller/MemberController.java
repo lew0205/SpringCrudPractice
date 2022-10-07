@@ -31,6 +31,8 @@ public class MemberController {
         log.info(memberForm.getName());
         log.info(member.getName());
 
+        memberService.join(member);
+
         return member;
     }
 
