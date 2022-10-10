@@ -30,4 +30,9 @@ public class PostServiceImpl implements PostService{
     public List<Post> findByTitle(String postingTitle) {
         return postRepository.findAllByTitle(postingTitle);
     }
+
+    @Override
+    public List<Post> findByAuthor(String authorName) {
+        return postRepository.findAllByAuthor(authorName);
+    }
 }

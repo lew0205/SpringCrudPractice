@@ -12,4 +12,6 @@ public interface PostService {
     Post findOne(Long postIdx);
 
     List<Post> findByTitle(String postingTitle);
+
+    List<Post> findByAuthor(String authorName);
 }
