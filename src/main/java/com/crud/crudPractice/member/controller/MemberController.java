@@ -21,7 +21,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/join")
-    public Member join(MemberForm memberForm) {
+    public Member join(@RequestBody MemberForm memberForm) {
         Member member = new Member();
 
         member.setName(memberForm.getName());
@@ -53,5 +53,4 @@ public class MemberController {
         List<Member> members = memberService.findMembers();
         return members;
     }
-
 }
