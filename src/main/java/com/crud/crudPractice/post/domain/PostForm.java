@@ -9,4 +9,5 @@ public class PostForm {
     String Title;
     String Content;
     String Author;
+//    Member Author;
 }
