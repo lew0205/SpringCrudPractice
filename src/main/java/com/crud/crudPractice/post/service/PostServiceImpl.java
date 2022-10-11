@@ -1,5 +1,6 @@
 package com.crud.crudPractice.post.service;
 
+import com.crud.crudPractice.member.domain.Member;
 import com.crud.crudPractice.post.domain.Post;
 import com.crud.crudPractice.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,7 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public List<Post> findByAuthor(String authorName) {
-        return postRepository.findAllByAuthor(authorName);
+    public List<Post> findByAuthor(Member author) {
+        return postRepository.findAllByAuthor(author);
     }
 }

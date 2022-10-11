@@ -1,5 +1,6 @@
 package com.crud.crudPractice.post.repository;
 
+import com.crud.crudPractice.member.domain.Member;
 import com.crud.crudPractice.post.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -10,5 +11,5 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findAllByTitle(String title);
 
-    List<Post> findAllByAuthor(String authorName);
+    List<Post> findAllByAuthor(Member author);
 }

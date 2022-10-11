@@ -1,5 +1,6 @@
 package com.crud.crudPractice.post.service;
 
+import com.crud.crudPractice.member.domain.Member;
 import com.crud.crudPractice.post.domain.Post;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface PostService {
 
     List<Post> findByTitle(String postingTitle);
 
-    List<Post> findByAuthor(String authorName);
+    List<Post> findByAuthor(Member author);
 }
