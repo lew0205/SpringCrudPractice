@@ -1,12 +1,10 @@
 package com.crud.crudPractice.post.domain;
 
+import com.crud.crudPractice.member.domain.Member;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -22,6 +20,6 @@ public class Post {
 
     private String content;
 
-    private String author;
-//    private Member author;
+    @ManyToOne
+    private Member author;
 }
