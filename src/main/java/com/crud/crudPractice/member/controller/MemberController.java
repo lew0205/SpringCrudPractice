@@ -28,21 +28,18 @@ public class MemberController {
         member.setPhoneNum(memberForm.getPhoneNum());
         member.setAge(memberForm.getAge());
 
-        log.info(memberForm.getName());
-        log.info(member.getName());
-
         memberService.join(member);
 
         return member;
     }
 
-    @GetMapping("/id{memberId}")
+    @GetMapping("/id/{memberId}")
     public Member findMemberId(@PathVariable Long memberId) {
         Member result = memberService.findMemberById(memberId);
         return result;
     }
 
-    @GetMapping("/name{memberName}")
+    @GetMapping("/name/{memberName}")
     public Member findMemberName(@PathVariable String memberName) {
         Member result = memberService.findMemberByName(memberName);
         return result;

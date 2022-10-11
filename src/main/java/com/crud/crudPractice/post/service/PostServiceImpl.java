@@ -24,7 +24,8 @@ public class PostServiceImpl implements PostService{
     }
 
     public Post findOne(Long postIdx) {
-        return postRepository.findById(postIdx).orElseThrow(() -> new RuntimeException());
+        return postRepository.findById(postIdx)
+                .orElseThrow(() -> new RuntimeException());
     }
 
     public List<Post> findByTitle(String postingTitle) {
