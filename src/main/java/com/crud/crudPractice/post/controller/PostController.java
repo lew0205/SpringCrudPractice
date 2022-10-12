@@ -1,7 +1,9 @@
 package com.crud.crudPractice.post.controller;
 
+import com.crud.crudPractice.member.service.MemberService;
 import com.crud.crudPractice.post.domain.Post;
 import com.crud.crudPractice.post.domain.PostForm;
+import com.crud.crudPractice.post.service.PostService;
 import com.crud.crudPractice.post.service.PostServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +19,8 @@ import java.util.List;
 @Slf4j
 public class PostController {
 
-    private final PostServiceImpl postService;
+    private final PostService postService;
+    private final MemberService memberService;
 
     @GetMapping("/board/new")
     public String createForm() {
@@ -29,7 +32,7 @@ public class PostController {
         Post post = new Post();
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());
-        post.setAuthor(form.getAuthor());
+        post.setAuthor(memberService.findMemberById(form.getAuthor()));
 
         postService.submit(post);
 

@@ -9,5 +9,5 @@ import lombok.Setter;
 public class PostForm {
     String Title;
     String Content;
-    Member Author;
+    Long Author;
 }
