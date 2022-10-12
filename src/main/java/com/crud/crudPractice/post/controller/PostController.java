@@ -31,10 +31,6 @@ public class PostController {
         post.setContent(form.getContent());
         post.setAuthor(form.getAuthor());
 
-        log.info(post.getTitle());
-        log.info(post.getContent());
-        log.info(post.getAuthor());
-
         postService.submit(post);
 
         return "redirect:/";
