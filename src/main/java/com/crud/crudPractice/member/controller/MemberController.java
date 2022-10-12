@@ -4,6 +4,8 @@ import com.crud.crudPractice.member.domain.Member;
 import com.crud.crudPractice.member.domain.MemberForm;
 import com.crud.crudPractice.member.repository.MemberRepository;
 import com.crud.crudPractice.member.service.MemberService;
+import com.crud.crudPractice.post.domain.Post;
+import com.crud.crudPractice.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+    private final PostService postService;
 
     @PostMapping("/join")
     public Member join(@RequestBody MemberForm memberForm) {
@@ -27,6 +30,10 @@ public class MemberController {
         member.setName(memberForm.getName());
         member.setPhoneNum(memberForm.getPhoneNum());
         member.setAge(memberForm.getAge());
+        List<Post> adf;
+        for(Long id : memberForm.getPostIds()){
+            member.getPosts().add(postService.findOne(id));
+        }
 
         memberService.join(member);
 
