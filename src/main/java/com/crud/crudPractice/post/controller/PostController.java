@@ -33,6 +33,7 @@ public class PostController {
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());
         post.setAuthor(memberService.findMemberById(form.getAuthor()));
+        memberService.findMemberById(form.getAuthor()).getPosts().add(post);
 
         postService.submit(post);
 

@@ -30,10 +30,6 @@ public class MemberController {
         member.setName(memberForm.getName());
         member.setPhoneNum(memberForm.getPhoneNum());
         member.setAge(memberForm.getAge());
-        List<Post> adf;
-        for(Long id : memberForm.getPostIds()){
-            member.getPosts().add(postService.findOne(id));
-        }
 
         memberService.join(member);
 

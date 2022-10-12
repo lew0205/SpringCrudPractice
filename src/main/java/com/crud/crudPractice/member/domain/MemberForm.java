@@ -11,5 +11,4 @@ public class MemberForm {
     String name;
     String phoneNum;
     Long age;
-    List<Long> postIds;
 }
