@@ -2,9 +2,8 @@ package com.crud.crudPractice.post.controller;
 
 import com.crud.crudPractice.member.service.MemberService;
 import com.crud.crudPractice.post.domain.Post;
-import com.crud.crudPractice.post.domain.PostForm;
+import com.crud.crudPractice.post.domain.PostDto;
 import com.crud.crudPractice.post.service.PostService;
-import com.crud.crudPractice.post.service.PostServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -28,7 +27,7 @@ public class PostController {
     }
 
     @PostMapping("/board/new")
-    public String create(PostForm form) {
+    public String create(PostDto form) {
         Post post = new Post();
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());

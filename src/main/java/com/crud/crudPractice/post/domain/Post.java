@@ -1,6 +1,8 @@
 package com.crud.crudPractice.post.domain;
 
 import com.crud.crudPractice.member.domain.Member;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +10,8 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Setter
+@Builder
+@AllArgsConstructor
 public class Post {
 
     @Id
@@ -22,4 +25,8 @@ public class Post {
 
     @ManyToOne
     private Member author;
+
+    public Post(){
+
+    }
 }
