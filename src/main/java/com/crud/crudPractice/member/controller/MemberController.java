@@ -1,15 +1,11 @@
 package com.crud.crudPractice.member.controller;
 
 import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberForm;
-import com.crud.crudPractice.member.repository.MemberRepository;
+import com.crud.crudPractice.member.domain.MemberDto;
 import com.crud.crudPractice.member.service.MemberService;
-import com.crud.crudPractice.post.domain.Post;
 import com.crud.crudPractice.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,12 +20,8 @@ public class MemberController {
     private final PostService postService;
 
     @PostMapping("/join")
-    public Member join(@RequestBody MemberForm memberForm) {
-        Member member = new Member();
-
-        member.setName(memberForm.getName());
-        member.setPhoneNum(memberForm.getPhoneNum());
-        member.setAge(memberForm.getAge());
+    public Member join(@RequestBody MemberDto memberDto) {
+        Member member = memberDto.toEntity();
 
         memberService.join(member);
 

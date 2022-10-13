@@ -1,15 +1,12 @@
 package com.crud.crudPractice.member.service;
 
 import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberForm;
 import com.crud.crudPractice.member.repository.MemberRepository;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Transactional
 @Service

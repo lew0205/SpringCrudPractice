@@ -1,8 +1,6 @@
 package com.crud.crudPractice.member.service;
 
 import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberForm;
-import com.crud.crudPractice.post.domain.Post;
 
 import java.util.List;
 

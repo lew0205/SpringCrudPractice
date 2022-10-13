@@ -1,6 +1,8 @@
 package com.crud.crudPractice.member.domain;
 
 import com.crud.crudPractice.post.domain.Post;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +12,8 @@ import java.util.Map;
 
 @Entity
 @Getter
-@Setter
+@Builder
+@AllArgsConstructor
 public class Member {
 
     @Id
@@ -22,4 +25,8 @@ public class Member {
     private Long age;
     @OneToMany
     private List<Post> posts;
+
+    public Member(){
+
+    }
 }
