@@ -19,7 +19,6 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
-    private final MemberService memberService;
 
     @GetMapping("/board/new")
     public String createForm() {
@@ -27,14 +26,9 @@ public class PostController {
     }
 
     @PostMapping("/board/new")
-    public String create(PostDto form) {
-        Post post = new Post();
-        post.setTitle(form.getTitle());
-        post.setContent(form.getContent());
-        post.setAuthor(memberService.findMemberById(form.getAuthor()));
-        memberService.findMemberById(form.getAuthor()).getPosts().add(post);
+    public String create(PostDto postDto) {
 
-        postService.submit(post);
+        postService.submit(postDto);
 
         return "redirect:/";
     }

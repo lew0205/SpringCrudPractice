@@ -1,7 +1,9 @@
 package com.crud.crudPractice.post.service;
 
 import com.crud.crudPractice.member.domain.Member;
+import com.crud.crudPractice.member.service.MemberService;
 import com.crud.crudPractice.post.domain.Post;
+import com.crud.crudPractice.post.domain.PostDto;
 import com.crud.crudPractice.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,8 +16,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
+    private final MemberService memberService;
 
-    public Long submit(Post post) {
+    public Long submit(PostDto postDto) {
+        Member memberId = memberService.findMemberById(postDto.getAuthor());
+
+        Post post = postDto.toEntity(memberId);
         postRepository.save(post);
         return post.getId();
     }
