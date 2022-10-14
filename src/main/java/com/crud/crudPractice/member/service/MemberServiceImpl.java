@@ -1,6 +1,7 @@
 package com.crud.crudPractice.member.service;
 
 import com.crud.crudPractice.member.domain.Member;
+import com.crud.crudPractice.member.domain.MemberDto;
 import com.crud.crudPractice.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,9 @@ public class MemberServiceImpl implements MemberService {
 
 
     @Override
-    public Member join(Member member) {
+    public Member join(MemberDto memberDto) {
+        Member member = memberDto.toEntity();
+
         memberRepository.save(member);
         return member;
     }

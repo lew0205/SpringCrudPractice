@@ -21,9 +21,7 @@ public class MemberController {
 
     @PostMapping("/join")
     public Member join(@RequestBody MemberDto memberDto) {
-        Member member = memberDto.toEntity();
-
-        memberService.join(member);
+        Member member = memberService.join(memberDto);
 
         return member;
     }
