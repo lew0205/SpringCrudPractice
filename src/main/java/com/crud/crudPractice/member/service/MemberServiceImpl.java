@@ -39,4 +39,14 @@ public class MemberServiceImpl implements MemberService {
     public Member findMemberByName(String name) {
         return memberRepository.findByName(name);
     }
+
+    @Override
+    public void deleteOne(Long id) {
+        memberRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteAll() {
+        memberRepository.deleteAll();
+    }
 }

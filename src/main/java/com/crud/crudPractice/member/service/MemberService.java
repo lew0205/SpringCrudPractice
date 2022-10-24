@@ -14,4 +14,8 @@ public interface MemberService {
     Member findMemberById(Long id);
 
     Member findMemberByName(String name);
+
+    void deleteOne(Long id);
+
+    void deleteAll();
 }
