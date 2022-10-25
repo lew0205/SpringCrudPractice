@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -50,13 +51,18 @@ public class MemberServiceTest {
         Member member2 = memberService.join(memberDto2);
         Member member3 = memberService.join(memberDto3);
         Member member4 = memberService.join(memberDto4);
+        List<Member> members= new ArrayList<>();
+        members.add(member1);
+        members.add(member2);
+        members.add(member3);
+        members.add(member4);
 
         //when
         List<Member> result = memberService.findMembers();
 
         //then
         assertThat(result.size()).isEqualTo(4);
-        for(Member member : result)
+        for(Member member : members)
         assertThat(result.contains(member));
     }
 }
