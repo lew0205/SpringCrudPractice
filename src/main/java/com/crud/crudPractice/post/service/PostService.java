@@ -7,7 +7,7 @@ import com.crud.crudPractice.post.domain.PostDto;
 import java.util.List;
 
 public interface PostService {
-    Long submit(PostDto postDto);
+    Post submit(PostDto postDto);
 
     List<Post> findPosts();
 
@@ -16,4 +16,8 @@ public interface PostService {
     List<Post> findByTitle(String postingTitle);
 
     List<Post> findByAuthor(Member author);
+
+    void deleteOne(Long id);
+
+    void deleteAll();
 }

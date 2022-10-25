@@ -18,12 +18,12 @@ public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
     private final MemberService memberService;
 
-    public Long submit(PostDto postDto) {
-        Member memberId = memberService.findMemberById(postDto.getAuthor());
+    public Post submit(PostDto postDto) {
+        Member member = memberService.findMemberById(postDto.getAuthor());
 
-        Post post = postDto.toEntity(memberId);
+        Post post = postDto.toEntity(member);
         postRepository.save(post);
-        return post.getId();
+        return post;
     }
 
     public List<Post> findPosts() {
@@ -42,5 +42,15 @@ public class PostServiceImpl implements PostService{
     @Override
     public List<Post> findByAuthor(Member author) {
         return postRepository.findAllByAuthor(author);
+    }
+
+    @Override
+    public void deleteOne(Long id) {
+        postRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteAll() {
+        postRepository.deleteAll();
     }
 }
