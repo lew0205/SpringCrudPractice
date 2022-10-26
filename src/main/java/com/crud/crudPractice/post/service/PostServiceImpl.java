@@ -20,6 +20,7 @@ public class PostServiceImpl implements PostService{
 
     public Post submit(PostDto postDto) {
         Member member = memberService.findMemberById(postDto.getAuthor());
+        System.out.println("member = " + member);
 
         Post post = postDto.toEntity(member);
         postRepository.save(post);

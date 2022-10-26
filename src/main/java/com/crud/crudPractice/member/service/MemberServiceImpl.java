@@ -19,10 +19,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member join(MemberDto memberDto) {
-        Member member = memberDto.toEntity();
-
-        memberRepository.save(member);
-        return member;
+        return memberRepository.save(memberDto.toEntity());
     }
 
     @Override

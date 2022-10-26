@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -27,6 +28,7 @@ public class PostServiceTest {
     }
 
     @Test
+    @Transactional
     public void submit(){
         //given
         MemberDto memberDto = new MemberDto("email@gamil.com", "userA", "010-1234-5678", 20L);
@@ -39,5 +41,6 @@ public class PostServiceTest {
         assertThat(result.getTitle()).isEqualTo("TestArticle");
         assertThat(result.getContent()).isEqualTo("I want to go home");
         assertThat(result.getAuthor().getName()).isEqualTo("userA");
+        assertThat(result.getAuthor()).isEqualTo(member);
     }
 }

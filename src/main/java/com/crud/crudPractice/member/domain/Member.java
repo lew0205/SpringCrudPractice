@@ -24,8 +24,8 @@ public class Member {
     private String name;
     private String phoneNum;
     private Long age;
-    @OneToMany
-    private List<Post> posts;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "author")
+    List<Post> posts;
 
     public Member(){
 
