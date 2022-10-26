@@ -42,10 +42,10 @@ public class MemberServiceTest {
     @Test
     public void findAll(){
         //given
-        MemberDto memberDto1 = new MemberDto("email1@gamil.com", "userA", "010-1234-5678", 20L);
-        MemberDto memberDto2 = new MemberDto("email2@gamil.com", "userB", "010-2234-5678", 20L);
-        MemberDto memberDto3 = new MemberDto("email3@gamil.com", "userC", "010-3234-5678", 20L);
-        MemberDto memberDto4 = new MemberDto("email4@gamil.com", "userD", "010-4234-5678", 20L);
+        MemberDto memberDto1 = new MemberDto("email1@gamil.com", "userA", "010-1234-5678", 20);
+        MemberDto memberDto2 = new MemberDto("email2@gamil.com", "userB", "010-2234-5678", 20);
+        MemberDto memberDto3 = new MemberDto("email3@gamil.com", "userC", "010-3234-5678", 20);
+        MemberDto memberDto4 = new MemberDto("email4@gamil.com", "userD", "010-4234-5678", 20);
 
         Member member1 = memberService.join(memberDto1);
         Member member2 = memberService.join(memberDto2);

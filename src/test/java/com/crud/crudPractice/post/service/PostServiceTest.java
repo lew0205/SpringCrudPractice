@@ -31,7 +31,7 @@ public class PostServiceTest {
     @Transactional
     public void submit(){
         //given
-        MemberDto memberDto = new MemberDto("email@gamil.com", "userA", "010-1234-5678", 20L);
+        MemberDto memberDto = new MemberDto("email@gamil.com", "userA", "010-1234-5678", 20);
         Member member = memberService.join(memberDto);
         Long id = member.getId();
         PostDto postDto = new PostDto("TestArticle","I want to go home",id);

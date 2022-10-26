@@ -23,7 +23,7 @@ public class Member {
     private String email;
     private String name;
     private String phoneNum;
-    private Long age;
+    private int age;
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "author")
     List<Post> posts;
 

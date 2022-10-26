@@ -11,7 +11,7 @@ public class MemberDto {
     String email;
     String name;
     String phoneNum;
-    Long age;
+    int age;
 
     public Member toEntity(){
         return Member.builder()
