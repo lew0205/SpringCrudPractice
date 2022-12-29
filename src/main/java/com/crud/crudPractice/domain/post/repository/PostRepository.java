@@ -1,7 +1,7 @@
-package com.crud.crudPractice.post.repository;
+package com.crud.crudPractice.domain.post.repository;
 
-import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.post.domain.Post;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.post.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

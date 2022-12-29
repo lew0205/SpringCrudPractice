@@ -1,6 +1,7 @@
-package com.crud.crudPractice.member.domain;
+package com.crud.crudPractice.domain.member.presentation.dto;
 
 import lombok.*;
+import com.crud.crudPractice.domain.member.Member;
 
 @Getter
 @Builder
@@ -13,7 +14,7 @@ public class MemberDto {
     String phoneNum;
     int age;
 
-    public Member toEntity(){
+    public Member toEntity() {
         return Member.builder()
                 .email(email)
                 .name(name)

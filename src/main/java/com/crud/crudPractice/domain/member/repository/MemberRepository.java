@@ -1,6 +1,6 @@
-package com.crud.crudPractice.member.repository;
+package com.crud.crudPractice.domain.member.repository;
 
-import com.crud.crudPractice.member.domain.Member;
+import com.crud.crudPractice.domain.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

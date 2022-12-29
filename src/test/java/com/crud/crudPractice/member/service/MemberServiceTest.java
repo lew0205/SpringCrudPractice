@@ -1,8 +1,8 @@
 package com.crud.crudPractice.member.service;
 
-import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberDto;
-import org.assertj.core.api.Assertions;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.member.presentation.dto.MemberDto;
+import com.crud.crudPractice.domain.member.service.MemberService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class MemberServiceTest {
     @Test
     public void join(){
         //given
-        MemberDto memberDto = new MemberDto("email@gamil.com", "userA", "010-1234-5678", 20L);
+        MemberDto memberDto = new MemberDto("email@gamil.com", "userA", "010-1234-5678", 20);
 
         //when
         Member result = memberService.join(memberDto);

@@ -1,6 +1,7 @@
-package com.crud.crudPractice.post.domain;
+package com.crud.crudPractice.domain.post.presentation.dto;
 
-import com.crud.crudPractice.member.domain.Member;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.post.Post;
 import lombok.*;
 
 @Getter

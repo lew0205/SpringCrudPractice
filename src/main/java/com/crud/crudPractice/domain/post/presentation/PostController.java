@@ -1,9 +1,8 @@
-package com.crud.crudPractice.post.controller;
+package com.crud.crudPractice.domain.post.presentation;
 
-import com.crud.crudPractice.member.service.MemberService;
-import com.crud.crudPractice.post.domain.Post;
-import com.crud.crudPractice.post.domain.PostDto;
-import com.crud.crudPractice.post.service.PostService;
+import com.crud.crudPractice.domain.post.Post;
+import com.crud.crudPractice.domain.post.presentation.dto.PostDto;
+import com.crud.crudPractice.domain.post.service.PostService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

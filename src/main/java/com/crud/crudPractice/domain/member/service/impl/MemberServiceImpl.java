@@ -1,8 +1,9 @@
-package com.crud.crudPractice.member.service;
+package com.crud.crudPractice.domain.member.service.impl;
 
-import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberDto;
-import com.crud.crudPractice.member.repository.MemberRepository;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.member.presentation.dto.MemberDto;
+import com.crud.crudPractice.domain.member.repository.MemberRepository;
+import com.crud.crudPractice.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

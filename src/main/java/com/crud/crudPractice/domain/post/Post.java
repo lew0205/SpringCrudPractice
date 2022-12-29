@@ -1,10 +1,9 @@
-package com.crud.crudPractice.post.domain;
+package com.crud.crudPractice.domain.post;
 
-import com.crud.crudPractice.member.domain.Member;
+import com.crud.crudPractice.domain.member.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 

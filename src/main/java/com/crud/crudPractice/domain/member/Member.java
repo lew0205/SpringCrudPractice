@@ -1,18 +1,15 @@
-package com.crud.crudPractice.member.domain;
+package com.crud.crudPractice.domain.member;
 
-import com.crud.crudPractice.post.domain.Post;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.crud.crudPractice.domain.post.Post;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Getter
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class Member {
 
@@ -26,8 +23,4 @@ public class Member {
     private int age;
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "author")
     List<Post> posts;
-
-    public Member(){
-
-    }
 }

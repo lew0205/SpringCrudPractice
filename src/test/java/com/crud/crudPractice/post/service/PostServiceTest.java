@@ -1,11 +1,11 @@
 package com.crud.crudPractice.post.service;
 
-import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberDto;
-import com.crud.crudPractice.member.service.MemberService;
-import com.crud.crudPractice.post.domain.Post;
-import com.crud.crudPractice.post.domain.PostDto;
-import org.assertj.core.api.Assertions;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.member.presentation.dto.MemberDto;
+import com.crud.crudPractice.domain.member.service.MemberService;
+import com.crud.crudPractice.domain.post.Post;
+import com.crud.crudPractice.domain.post.presentation.dto.PostDto;
+import com.crud.crudPractice.domain.post.service.PostService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
-package com.crud.crudPractice.member.controller;
+package com.crud.crudPractice.domain.member.presentation;
 
-import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.member.domain.MemberDto;
-import com.crud.crudPractice.member.service.MemberService;
-import com.crud.crudPractice.post.service.PostService;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.member.presentation.dto.MemberDto;
+import com.crud.crudPractice.domain.member.service.MemberService;
+import com.crud.crudPractice.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

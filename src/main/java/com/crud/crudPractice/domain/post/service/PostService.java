@@ -1,8 +1,8 @@
-package com.crud.crudPractice.post.service;
+package com.crud.crudPractice.domain.post.service;
 
-import com.crud.crudPractice.member.domain.Member;
-import com.crud.crudPractice.post.domain.Post;
-import com.crud.crudPractice.post.domain.PostDto;
+import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.post.Post;
+import com.crud.crudPractice.domain.post.presentation.dto.PostDto;
 
 import java.util.List;
 
