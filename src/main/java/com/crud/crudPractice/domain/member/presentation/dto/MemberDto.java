@@ -4,7 +4,6 @@ import lombok.*;
 import com.crud.crudPractice.domain.member.Member;
 
 @Getter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberDto {
