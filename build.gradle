@@ -21,10 +21,14 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
     // spring security
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
+    // jjwt
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 }
 
 tasks.named('test') {

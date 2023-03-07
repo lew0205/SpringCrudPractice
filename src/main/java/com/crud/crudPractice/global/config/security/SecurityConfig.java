@@ -1,5 +1,7 @@
 package com.crud.crudPractice.global.config.security;
 
+import com.crud.crudPractice.global.security.handler.CustomAccessDeniedHandler;
+import com.crud.crudPractice.global.security.handler.CustomAuthenticationEntryPointHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -40,12 +42,8 @@ public class SecurityConfig {
             .anyRequest().denyAll()
             .and()
             .exceptionHandling()
-            .accessDeniedHandler((request, response, accessDeniedException) -> {
-
-            })
-            .authenticationEntryPoint((request, response, authException) -> {
-
-            });
+            .accessDeniedHandler(new CustomAccessDeniedHandler())
+            .authenticationEntryPoint(new CustomAuthenticationEntryPointHandler());
         return http.build();
     }
 
