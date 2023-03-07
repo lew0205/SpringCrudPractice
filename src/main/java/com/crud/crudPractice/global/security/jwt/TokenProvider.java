@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Key;
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -49,7 +50,13 @@ public class TokenProvider {
             .compact();
     }
 
-    public String parseToken(String token) {
+    public String resolveToken(HttpServletRequest request) {
+        String token = request.getHeader("Authorization");
+        if (token == null) return null;
+        else return parseToken(token);
+    }
+
+    private String parseToken(String token) {
         if (token.startsWith(TOKEN_PREFIX))
             return token.replace(TOKEN_PREFIX, "");
         return null;
@@ -69,7 +76,7 @@ public class TokenProvider {
         return getTokenBody(token, secret).getSubject();
     }
 
-    private Authentication authentication(String token) {
+    public Authentication authentication(String token) {
         UserDetails userDetails = authDetailsService.loadUserByUsername(getTokenSubject(token, jwtProperties.accessSecret));
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
