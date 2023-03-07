@@ -17,13 +17,18 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
-    private final PostService postService;
 
-    @PostMapping("/join")
+    @PostMapping
     public Member join(@RequestBody MemberDto memberDto) {
         Member member = memberService.join(memberDto);
 
         return member;
+    }
+
+    @GetMapping
+    public List<Member> memberList() {
+        List<Member> members = memberService.findMembers();
+        return members;
     }
 
     @GetMapping("/id/{memberId}")
@@ -36,11 +41,5 @@ public class MemberController {
     public Member findMemberName(@PathVariable String memberName) {
         Member result = memberService.findMemberByName(memberName);
         return result;
-    }
-
-    @GetMapping
-    public List<Member> memberList() {
-        List<Member> members = memberService.findMembers();
-        return members;
     }
 }
