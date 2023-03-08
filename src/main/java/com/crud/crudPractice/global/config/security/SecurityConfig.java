@@ -2,27 +2,18 @@ package com.crud.crudPractice.global.config.security;
 
 import com.crud.crudPractice.global.security.handler.CustomAccessDeniedHandler;
 import com.crud.crudPractice.global.security.handler.CustomAuthenticationEntryPointHandler;
+import com.crud.crudPractice.global.security.jwt.JwtExceptionFilter;
 import com.crud.crudPractice.global.security.jwt.JwtRequestFilter;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
@@ -30,6 +21,7 @@ import java.io.IOException;
 public class SecurityConfig {
 
     private final JwtRequestFilter jwtRequestFilter;
+    private final JwtExceptionFilter jwtExceptionFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -49,7 +41,8 @@ public class SecurityConfig {
             .accessDeniedHandler(new CustomAccessDeniedHandler())
             .authenticationEntryPoint(new CustomAuthenticationEntryPointHandler())
             .and()
-            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
+            .addFilterBefore(jwtExceptionFilter, JwtRequestFilter.class);
         return http.build();
     }
 

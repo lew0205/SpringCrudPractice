@@ -19,27 +19,5 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public Member join(@RequestBody MemberDto memberDto) {
-        Member member = memberService.join(memberDto);
-
-        return member;
-    }
-
-    @GetMapping
-    public List<Member> memberList() {
-        List<Member> members = memberService.findMembers();
-        return members;
-    }
-
-    @GetMapping("/id/{memberId}")
-    public Member findMemberId(@PathVariable Long memberId) {
-        Member result = memberService.findMemberById(memberId);
-        return result;
-    }
-
-    @GetMapping("/name/{memberName}")
-    public Member findMemberName(@PathVariable String memberName) {
-        Member result = memberService.findMemberByName(memberName);
-        return result;
-    }
+    public void signUp()
 }
