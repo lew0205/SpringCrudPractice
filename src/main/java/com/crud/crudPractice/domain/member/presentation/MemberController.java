@@ -1,14 +1,16 @@
 package com.crud.crudPractice.domain.member.presentation;
 
-import com.crud.crudPractice.domain.member.Member;
-import com.crud.crudPractice.domain.member.presentation.dto.MemberDto;
+import com.crud.crudPractice.domain.member.presentation.dto.MemberSignUpReqDto;
 import com.crud.crudPractice.domain.member.service.MemberService;
-import com.crud.crudPractice.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/members")
@@ -19,5 +21,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public void signUp()
+    public ResponseEntity<Void> signUp(@Valid @RequestBody MemberSignUpReqDto memberSignUpReqDto) {
+        memberService.join(memberSignUpReqDto);
+        return ResponseEntity.ok().build();
+    }
 }

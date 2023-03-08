@@ -19,8 +19,7 @@ public class Member {
     private Long id;
     private String email;
     private String name;
-    private String phoneNum;
-    private int age;
+    private String password;
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "author")
     List<Post> posts;
 }
