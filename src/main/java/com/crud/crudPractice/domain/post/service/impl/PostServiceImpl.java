@@ -1,7 +1,7 @@
 package com.crud.crudPractice.domain.post.service.impl;
 
 import com.crud.crudPractice.domain.member.Member;
-import com.crud.crudPractice.domain.member.service.MemberService;
+import com.crud.crudPractice.domain.member.service.MemberSignUpService;
 import com.crud.crudPractice.domain.post.Post;
 import com.crud.crudPractice.domain.post.presentation.dto.PostDto;
 import com.crud.crudPractice.domain.post.repository.PostRepository;
@@ -17,10 +17,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
-    private final MemberService memberService;
+    private final MemberSignUpService memberSignUpService;
 
     public Post submit(PostDto postDto) {
-        Member member = memberService.findMemberById(postDto.getAuthor());
+        Member member = memberSignUpService.findMemberById(postDto.getAuthor());
         System.out.println("member = " + member);
 
         Post post = postDto.toEntity(member);

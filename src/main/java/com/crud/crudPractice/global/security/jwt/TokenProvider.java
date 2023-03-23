@@ -32,6 +32,10 @@ public class TokenProvider {
 
     ZonedDateTime accessExpiredTime;
 
+    public ZonedDateTime getAccessExpiredTime() {
+        return ZonedDateTime.now().plusSeconds(ACCESS_EXP);
+    }
+
     public String generateAccessToken(String email) {
         return generateToken(email, ACCESS_TYPE, jwtProperties.accessSecret, ACCESS_EXP);
     }

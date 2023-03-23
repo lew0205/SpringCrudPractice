@@ -1,4 +1,4 @@
-package com.crud.crudPractice.domain.member.presentation.dto;
+package com.crud.crudPractice.domain.member.presentation.dto.req;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
