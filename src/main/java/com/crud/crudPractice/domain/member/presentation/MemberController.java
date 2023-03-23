@@ -2,6 +2,7 @@ package com.crud.crudPractice.domain.member.presentation;
 
 import com.crud.crudPractice.domain.member.presentation.dto.req.MemberSignInReqDto;
 import com.crud.crudPractice.domain.member.presentation.dto.req.MemberSignUpReqDto;
+import com.crud.crudPractice.domain.member.presentation.dto.res.MemberSignInResDto;
 import com.crud.crudPractice.domain.member.service.MemberSignInService;
 import com.crud.crudPractice.domain.member.service.MemberSignUpService;
 import lombok.RequiredArgsConstructor;
@@ -23,14 +24,14 @@ public class MemberController {
     private final MemberSignUpService memberSignUpService;
     private final MemberSignInService memberSignInService;
 
-    @PostMapping
+    @PostMapping("/signUp")
     public ResponseEntity<Void> signUp(@Valid @RequestBody MemberSignUpReqDto memberSignUpReqDto) {
         memberSignUpService.execute(memberSignUpReqDto);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping
-    public ResponseEntity<Void> signIn(@Valid @RequestBody MemberSignInReqDto memberSignInReqDto) {
-
+    public MemberSignInResDto signIn(@Valid @RequestBody MemberSignInReqDto memberSignInReqDto) {
+        return memberSignInService.execute(memberSignInReqDto);
     }
 }

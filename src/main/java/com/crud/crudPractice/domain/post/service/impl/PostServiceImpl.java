@@ -1,6 +1,7 @@
 package com.crud.crudPractice.domain.post.service.impl;
 
 import com.crud.crudPractice.domain.member.Member;
+import com.crud.crudPractice.domain.member.repository.MemberRepository;
 import com.crud.crudPractice.domain.member.service.MemberSignUpService;
 import com.crud.crudPractice.domain.post.Post;
 import com.crud.crudPractice.domain.post.presentation.dto.PostDto;
@@ -17,10 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
-    private final MemberSignUpService memberSignUpService;
+    private final MemberRepository memberRepository;
 
     public Post submit(PostDto postDto) {
-        Member member = memberSignUpService.findMemberById(postDto.getAuthor());
+        Member member = memberRepository.findById(postDto.getAuthor()).orElseThrow();
         System.out.println("member = " + member);
 
         Post post = postDto.toEntity(member);
@@ -34,7 +35,7 @@ public class PostServiceImpl implements PostService {
 
     public Post findOne(Long postIdx) {
         return postRepository.findById(postIdx)
-                .orElseThrow(() -> new RuntimeException());
+            .orElseThrow(() -> new RuntimeException());
     }
 
     public List<Post> findByTitle(String postingTitle) {

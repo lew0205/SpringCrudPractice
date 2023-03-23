@@ -22,7 +22,6 @@ public class TokenProvider {
 
     private final JwtProperties jwtProperties;
     private final AuthDetailsService authDetailsService;
-    private final JwtRequestFilter jwtRequestFilter;
 
     private static final String ACCESS_TYPE = "access";
     private static final String REFRESH_TYPE = "refresh";
