@@ -1,5 +1,8 @@
 package com.crud.crudPractice.global.exception;
 
+import lombok.Getter;
+
+@Getter
 public class ErrorResponse {
     private final String msg;
     private final int code;
