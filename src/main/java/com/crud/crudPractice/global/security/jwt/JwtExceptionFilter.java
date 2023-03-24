@@ -6,6 +6,7 @@ import com.crud.crudPractice.global.exception.ErrorResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -18,6 +19,7 @@ import java.io.IOException;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class JwtExceptionFilter extends OncePerRequestFilter {
 
     private final ObjectMapper objectMapper;
@@ -29,6 +31,8 @@ public class JwtExceptionFilter extends OncePerRequestFilter {
         } catch (BasicException e) {
             sendError(response, e.getErrorCode());
         } catch (Exception e) {
+            e.printStackTrace();
+            log.info(String.valueOf(e.getClass()));
             sendError(response, ErrorCode.INTERNAL_SERVER_ERROR);
         }
     }

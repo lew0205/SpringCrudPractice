@@ -20,9 +20,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberSignInServiceImpl implements MemberSignInService {
 
-    MemberRepository memberRepository;
-    PasswordEncoder passwordEncoder;
-    TokenProvider tokenProvider;
+    private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final TokenProvider tokenProvider;
 
     @Override
     public MemberSignInResDto execute(MemberSignInReqDto req) {

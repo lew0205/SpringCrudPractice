@@ -5,6 +5,7 @@ import com.crud.crudPractice.domain.member.presentation.dto.req.MemberSignUpReqD
 import com.crud.crudPractice.domain.member.repository.MemberRepository;
 import com.crud.crudPractice.domain.member.service.MemberSignUpService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import javax.transaction.Transactional;
 @Transactional
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MemberSignUpServiceImpl implements MemberSignUpService {
 
     private final MemberRepository memberRepository;
@@ -21,6 +23,9 @@ public class MemberSignUpServiceImpl implements MemberSignUpService {
 
     @Override
     public Member execute(MemberSignUpReqDto memberSignUpReqDto) {
+        log.info(memberSignUpReqDto.getEmail());
+        log.info(memberSignUpReqDto.getName());
+        log.info(memberSignUpReqDto.getPassword());
         return memberRepository.save(memberSignUpReqDto.toEntity(passwordEncoder.encode(memberSignUpReqDto.getPassword())));
     }
 }

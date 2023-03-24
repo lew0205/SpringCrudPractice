@@ -21,10 +21,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = tokenProvider.resolveToken(request);
-        if (!token.isBlank() && !token.isEmpty()) {
-            Authentication authentication = tokenProvider.authentication(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        }
+        if (token != null)
+            if (!token.isBlank() && !token.isEmpty()) {
+                Authentication authentication = tokenProvider.authentication(token);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         filterChain.doFilter(request, response);
     }
 }
