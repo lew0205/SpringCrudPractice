@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.util.NestedServletException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -28,11 +29,12 @@ public class JwtExceptionFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try {
             filterChain.doFilter(request, response);
-        } catch (BasicException e) {
-            sendError(response, e.getErrorCode());
+        } catch (NestedServletException e) {
+            Throwable rootCause = e.getRootCause();
+            if(rootCause instanceof BasicException)
+            sendError(response, ((BasicException) rootCause).getErrorCode());
         } catch (Exception e) {
             e.printStackTrace();
-            log.info(String.valueOf(e.getClass()));
             sendError(response, ErrorCode.INTERNAL_SERVER_ERROR);
         }
     }
