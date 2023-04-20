@@ -23,9 +23,6 @@ public class MemberSignUpServiceImpl implements MemberSignUpService {
 
     @Override
     public Member execute(MemberSignUpReqDto memberSignUpReqDto) {
-        log.info(memberSignUpReqDto.getEmail());
-        log.info(memberSignUpReqDto.getName());
-        log.info(memberSignUpReqDto.getPassword());
         return memberRepository.save(memberSignUpReqDto.toEntity(passwordEncoder.encode(memberSignUpReqDto.getPassword())));
     }
 }
