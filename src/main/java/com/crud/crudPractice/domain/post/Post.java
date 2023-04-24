@@ -4,12 +4,14 @@ import com.crud.crudPractice.domain.member.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class Post {
 
@@ -23,10 +25,6 @@ public class Post {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "author")
+    @JoinColumn(name = "member_id")
     private Member author;
-
-    public Post(){
-
-    }
 }

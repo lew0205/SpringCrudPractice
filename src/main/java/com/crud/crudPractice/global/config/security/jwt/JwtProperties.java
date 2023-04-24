@@ -14,8 +14,8 @@ import java.security.Key;
 @ConfigurationProperties(prefix = "jwt")
 public class JwtProperties {
 
-    public Key refreshSecret;
     public Key accessSecret;
+    public Key refreshSecret;
 
     @Value("${jwt.accessSecret}")
     private String accessSecretValue;
