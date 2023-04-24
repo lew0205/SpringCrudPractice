@@ -18,8 +18,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -41,8 +39,8 @@ public class MemberTest {
     @DisplayName("[성공] 회원가입")
     void signUpTest() {
         // given
-        String email = "s21048@gsm.hs.kr";
-        String name = "이은우";
+        String email = "test@test.test";
+        String name = "test";
         String password = "password1234";
 
         // when
@@ -67,8 +65,8 @@ public class MemberTest {
     @DisplayName("[성공] 로그인")
     void successSignInTest() {
         // given
-        String email = "s21048@gsm.hs.kr";
-        String name = "이은우";
+        String email = "test@test.test";
+        String name = "test";
         String password = "password1234";
 
         MemberSignUpReqDto memberSignUpReqDto = new MemberSignUpReqDto(email, name, password);
@@ -87,11 +85,11 @@ public class MemberTest {
     @Test
     @DisplayName("[실패] 로그인")
     void failSignUpTest() {
-        String email = "s21048@gsm.hs.kr";
+        String email = "test@test.test";
+        String name = "test";
         String wrongEmail = "asdfasdf@gmail.com";
         String password = "password1234";
         String wrongPw = "wrongpw1234";
-        String name = "lee";
 
         MemberSignUpReqDto reqDto = new MemberSignUpReqDto(email, password, name);
         memberSignUpService.execute(reqDto);
